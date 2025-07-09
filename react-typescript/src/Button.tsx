@@ -1,13 +1,13 @@
-// Record 타입은 키와 값의 타입을 지정한 객체를 만들고 싶을 때 사용.
+// function을 App에서 Button으로 onClick이라는 Prop으로 넘긴다
 
 type buttonProps = {
-    borderRadius: Record<string, number>
-}
+    onClick: (name: string) => string;
+};
 
-function Button({  }: buttonProps) {
+function Button({ onClick }: buttonProps) {
 
     return(
-        <button>
+        <button onClick={() => console.log(onClick("mr.beast"))}>
             Click me!!
         </button>   
     );

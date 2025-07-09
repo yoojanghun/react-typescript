@@ -2,8 +2,10 @@ import Button from "./Button.tsx";
 
 function App() {
 
+  const hello = (name: string) => `hello ${name}`;
+
   return (
-    <Button borderRadius={{ topLeft: 5, topRight: 50, bottomRight: 10, bottomLeft:10 }}/>
+    <Button onClick={hello}/>
   );
 }
 
