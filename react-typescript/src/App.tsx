@@ -1,12 +1,12 @@
+import { useState } from "react";
 import Button from "./Button.tsx";
 
 function App() {
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <Button>Button 내부에 적힌 것을 children이라고 한다.</Button>
-      <Button><div>안녕 반가워</div></Button>
-      <Button>{true}</Button>
+      <Button count={count} countIncrement={setCount} />
     </>
   );
 }
