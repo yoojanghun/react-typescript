@@ -4,7 +4,7 @@ function App() {
 
   return (
     <Button backgroundColor="blue" fontSize={30} 
-    textColor="purple" padding={[5, 10, 20, 50, 40, 21]}/>
+    textColor="purple" padding={[5, 10, 20, 50]}/>
   );
 }
 
