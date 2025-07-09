@@ -1,22 +1,18 @@
-// tuple : 고정된 개수의 요소들을 담을 수 있는 배열 타입
-
-type Color = "red" | "blue" | "green" | "purple";
+// React.CSSProperties 라고 하면 style 객체를 우리들이 하나하나 정할 필요가 없다.
 
 type buttonProps = {
-    backgroundColor: Color;
-    textColor: Color;
-    fontSize: number;
-    pillShape?: boolean;
-    padding: [number, number, number, number];
+    // style: {
+    //     backgroundColor: string;
+    //     fontSize: number;
+    //     color: string;
+    // }
+    style: React.CSSProperties;
 }
 
-function Button({ backgroundColor, textColor, fontSize, padding }: buttonProps) {
+function Button({ style }: buttonProps) {
 
     return(
-        <button style={{ backgroundColor: backgroundColor, 
-                        color: textColor,
-                        fontSize: fontSize,
-                        padding: `${padding[0]}px ${padding[1]}px ${padding[2]}px ${padding[3]}px`}}>
+        <button style={ style }>
             Click me!!
         </button>   
     );
