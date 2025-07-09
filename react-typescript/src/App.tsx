@@ -2,10 +2,12 @@ import Button from "./Button.tsx";
 
 function App() {
 
-  const hello = (name: string) => `hello ${name}`;
-
   return (
-    <Button onClick={hello}/>
+    <>
+      <Button>Button 내부에 적힌 것을 children이라고 한다.</Button>
+      <Button><div>안녕 반가워</div></Button>
+      <Button>{true}</Button>
+    </>
   );
 }
 
