@@ -1,18 +1,13 @@
-// React.CSSProperties 라고 하면 style 객체를 우리들이 하나하나 정할 필요가 없다.
+// Record 타입은 키와 값의 타입을 지정한 객체를 만들고 싶을 때 사용.
 
 type buttonProps = {
-    // style: {
-    //     backgroundColor: string;
-    //     fontSize: number;
-    //     color: string;
-    // }
-    style: React.CSSProperties;
+    borderRadius: Record<string, number>
 }
 
-function Button({ style }: buttonProps) {
+function Button({  }: buttonProps) {
 
     return(
-        <button style={ style }>
+        <button>
             Click me!!
         </button>   
     );
