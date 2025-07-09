@@ -1,9 +1,14 @@
+// union type을 이용해 원하는 값만 받을 수 있다.
+
+type Color = "red" | "blue" | "green" | "purple";
+
 type buttonProps = {
-    backgroundColor: string;
+    backgroundColor: Color;
+    textColor: Color;
     fontSize: number;
     pillShape?: boolean;
+    padding: number[];
 }
-// pillShape 뒤에 ?를 붙이면 Prop을 보내도 되고 안 보내도 된다.
 
 function Button({ backgroundColor, fontSize }: buttonProps) {
 
