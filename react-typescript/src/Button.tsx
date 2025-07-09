@@ -1,20 +1,20 @@
+// Type Alias VS Interface
+// Interface를 사용하면 object에 대해서만 타입을 지정할 수 있다.
 
-type buttonProps = {
-    count: number;
-    countIncrement: React.Dispatch<React.SetStateAction<number>>;
-};
+// ComponentProps<> 타입을 이용하면 <> 안의 요소에 해당되는 모든 Prop들을 
+// 명시하지 않아도 바로 이용 가능
 
-function Button({ count, countIncrement }: buttonProps) {
+// type buttonProps = {
+//     type: "submit" | "reset" | "button";
+//     autoFocus?: boolean;
+// }
 
-    function handleClick() {
-        countIncrement(prev => {
-            const next = prev + 1;
-            console.log(next);
-            return next;
-        })
-    }
+type buttonProps = React.ComponentProps<"button">;
+
+function Button({ type, autoFocus }: buttonProps) {
+
     return(
-        <button onClick={handleClick}>Click me!!</button>   
+        <button type={type} autoFocus={autoFocus}>Click me!!</button>    
     );
 }
 
