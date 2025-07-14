@@ -1,21 +1,14 @@
-// Type Alias VS Interface
-// Interface를 사용하면 object에 대해서만 타입을 지정할 수 있다.
+// spread 연산자를 이용해 부모로부터 오는 수많은 prop들을 일일이 다 쓰지 않아도 됨
+// 명시하지 않은 나머지 props를 한꺼번에 받아서 <button> 태그에 그대로 전달하는 역할
 
-// ComponentProps<> 타입을 이용하면 <> 안의 요소에 해당되는 모든 Prop들을 
-// 명시하지 않아도 바로 이용 가능
+// ...rest: { defaultValue: "default", className: "class" }
 
-// type buttonProps = {
-//     type: "submit" | "reset" | "button";
-//     autoFocus?: boolean;
-// }
-
-// 부모(App.tsx)에서 ref={ref}를 이용하면 WithRef, 이용 안 하면 WithoutRef 붙임
 type buttonProps = React.ComponentPropsWithoutRef<"button">;
 
-function Button({ type, autoFocus, className }: buttonProps) {
+function Button({ type, autoFocus, ...rest }: buttonProps) {
 
     return(
-        <button type={type} autoFocus={autoFocus} className={className} >Click me!!</button>    
+        <button type={type} autoFocus={autoFocus} {...rest}>Click me!!</button>    
     );
 }
 
