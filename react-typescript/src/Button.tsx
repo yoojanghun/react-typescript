@@ -9,12 +9,13 @@
 //     autoFocus?: boolean;
 // }
 
-type buttonProps = React.ComponentProps<"button">;
+// 부모(App.tsx)에서 ref={ref}를 이용하면 WithRef, 이용 안 하면 WithoutRef 붙임
+type buttonProps = React.ComponentPropsWithoutRef<"button">;
 
-function Button({ type, autoFocus }: buttonProps) {
+function Button({ type, autoFocus, className }: buttonProps) {
 
     return(
-        <button type={type} autoFocus={autoFocus}>Click me!!</button>    
+        <button type={type} autoFocus={autoFocus} className={className} >Click me!!</button>    
     );
 }
 
