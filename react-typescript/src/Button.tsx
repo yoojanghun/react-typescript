@@ -1,9 +1,11 @@
-type buttonProps = {
+// type aliasing말고 interface를 이용하여 type 확장하기
+
+interface buttonProps {
     type: "button" | "submit" | "reset";
     color: "red" | "blue" | "green";
 }
 
-type superButtonProps = buttonProps & {
+interface superButtonProps extends buttonProps {
     padding: [number, number, number, number];
 }
 
