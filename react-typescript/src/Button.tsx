@@ -1,19 +1,21 @@
-// Omit을 이용하여 특정 key를 제외한 타입 생성 가능
-// 아래에선 User타입에서 name key를 제외한 Guest 타입 생성
+// 처음 페이지가 1번 로드될 때 localStorage에서 하나의 값을 읽어들임
 
-type User = {
-    sessionId: string;
-    name: string;
-}
+// as는 타입 단언 문법
+// typescript에게 이 값은 이 타입이라고 강제로 알려주는 문법
 
-type Guest = Omit<User, "name">;
+// localStorage.getItem()은 항상 string | null반환
+// 하지만 우리는 이 값이 red, blue, orange 중 하나라고 확신
+
+type ButtonColor = "red" | "blue" | "orange";
+
+import { useEffect } from "react";
 
 function Button() {
 
     return(
-        <button>
-            Click me!
-        </button>    
+        useEffect(() => {
+            const previousBtnColor = localStorage.getItem("btnColor") as ButtonColor
+        }, [])
     );
 }
 
