@@ -1,21 +1,25 @@
-// 처음 페이지가 1번 로드될 때 localStorage에서 하나의 값을 읽어들임
+// value에 string 도 넣고 싶고, number 도 넣고 싶음.
+// any라고 하면 typescript의 타입 검사 기능을 꺼버림.
+// 만약 value에서 toUpperCase 메소드를 사용하면 string은 문제 없지만,
+// number에서 문제가 생긴다. (number에선 toUpperCase가 없어서)
 
-// as는 타입 단언 문법
-// typescript에게 이 값은 이 타입이라고 강제로 알려주는 문법
-
-// localStorage.getItem()은 항상 string | null반환
-// 하지만 우리는 이 값이 red, blue, orange 중 하나라고 확신
-
-type ButtonColor = "red" | "blue" | "orange";
-
-import { useEffect } from "react";
+// 그래서 generic을 사용하여 어떤 타입이든 유연하게 받을 수 있도록 해 줌.
+// 먼저 함수의 매개변수를 받고, 타입을 나중에 정할 수 있도록 함.
 
 function Button() {
 
+    // function convertToArr(value: any) {
+    //     return [value];
+    // }
+
+    function convertToArr<T>(value: T): T[] {
+        return [value];
+    }
+
+    convertToArr(5);
+    convertToArr("hello");
+
     return(
-        useEffect(() => {
-            const previousBtnColor = localStorage.getItem("btnColor") as ButtonColor
-        }, [])
     );
 }
 
