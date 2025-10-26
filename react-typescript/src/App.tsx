@@ -1,9 +1,13 @@
-import Button from "./Button.tsx";
+import Generics from "./generics.tsx";
+import GenericsTwo from "./generics2.tsx";
 
 function App() {
 
   return (
-      <Button color="red" />
+    <>
+      <Generics />
+      <GenericsTwo />
+    </>
   );
 }
 
